@@ -1,0 +1,6 @@
+.env
+aml/ logs
+
+
+
+notebook/catboost_info
