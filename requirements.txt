@@ -8,4 +8,5 @@ seaborn
 matplotlib
 pymongo
 python-dotenv
+cassandra-driver
 

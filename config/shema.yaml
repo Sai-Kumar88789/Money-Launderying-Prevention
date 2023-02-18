@@ -1,0 +1,338 @@
+columns:
+- txid: int
+- timestamp: int
+- trans_feat_1: float
+- trans_feat_2: float
+- trans_feat_3: float
+- trans_feat_4: float
+- trans_feat_5: float
+- trans_feat_6: float
+- trans_feat_7: float
+- trans_feat_8: float
+- trans_feat_9: float
+- trans_feat_10: float
+- trans_feat_11: float
+- trans_feat_12: float
+- trans_feat_13: float
+- trans_feat_14: float
+- trans_feat_15: float
+- trans_feat_16: float
+- trans_feat_17: float
+- trans_feat_18: float
+- trans_feat_19: float
+- trans_feat_20: float
+- trans_feat_21: float
+- trans_feat_22: float
+- trans_feat_23: float
+- trans_feat_24: float
+- trans_feat_25: float
+- trans_feat_26: float
+- trans_feat_27: float
+- trans_feat_28: float
+- trans_feat_29: float
+- trans_feat_30: float
+- trans_feat_31: float
+- trans_feat_32: float
+- trans_feat_33: float
+- trans_feat_34: float
+- trans_feat_35: float
+- trans_feat_36: float
+- trans_feat_37: float
+- trans_feat_38: float
+- trans_feat_39: float
+- trans_feat_40: float
+- trans_feat_41: float
+- trans_feat_42: float
+- trans_feat_43: float
+- trans_feat_44: float
+- trans_feat_45: float
+- trans_feat_46: float
+- trans_feat_47: float
+- trans_feat_48: float
+- trans_feat_49: float
+- trans_feat_50: float
+- trans_feat_51: float
+- trans_feat_52: float
+- trans_feat_53: float
+- trans_feat_54: float
+- trans_feat_55: float
+- trans_feat_56: float
+- trans_feat_57: float
+- trans_feat_58: float
+- trans_feat_59: float
+- trans_feat_60: float
+- trans_feat_61: float
+- trans_feat_62: float
+- trans_feat_63: float
+- trans_feat_64: float
+- trans_feat_65: float
+- trans_feat_66: float
+- trans_feat_67: float
+- trans_feat_68: float
+- trans_feat_69: float
+- trans_feat_70: float
+- trans_feat_71: float
+- trans_feat_72: float
+- trans_feat_73: float
+- trans_feat_74: float
+- trans_feat_75: float
+- trans_feat_76: float
+- trans_feat_77: float
+- trans_feat_78: float
+- trans_feat_79: float
+- trans_feat_80: float
+- trans_feat_81: float
+- trans_feat_82: float
+- trans_feat_83: float
+- trans_feat_84: float
+- trans_feat_85: float
+- trans_feat_86: float
+- trans_feat_87: float
+- trans_feat_88: float
+- trans_feat_89: float
+- trans_feat_90: float
+- trans_feat_91: float
+- trans_feat_92: float
+- trans_feat_93: float
+- aggre_feat_1: float
+- aggre_feat_2: float
+- aggre_feat_3: float
+- aggre_feat_4: float
+- aggre_feat_5: float
+- aggre_feat_6: float
+- aggre_feat_7: float
+- aggre_feat_8: float
+- aggre_feat_9: float
+- aggre_feat_10: float
+- aggre_feat_11: float
+- aggre_feat_12: float
+- aggre_feat_13: float
+- aggre_feat_14: float
+- aggre_feat_15: float
+- aggre_feat_16: float
+- aggre_feat_17: float
+- aggre_feat_18: float
+- aggre_feat_19: float
+- aggre_feat_20: float
+- aggre_feat_21: float
+- aggre_feat_22: float
+- aggre_feat_23: float
+- aggre_feat_24: float
+- aggre_feat_25: float
+- aggre_feat_26: float
+- aggre_feat_27: float
+- aggre_feat_28: float
+- aggre_feat_29: float
+- aggre_feat_30: float
+- aggre_feat_31: float
+- aggre_feat_32: float
+- aggre_feat_33: float
+- aggre_feat_34: float
+- aggre_feat_35: float
+- aggre_feat_36: float
+- aggre_feat_37: float
+- aggre_feat_38: float
+- aggre_feat_39: float
+- aggre_feat_40: float
+- aggre_feat_41: float
+- aggre_feat_42: float
+- aggre_feat_43: float
+- aggre_feat_44: float
+- aggre_feat_45: float
+- aggre_feat_46: float
+- aggre_feat_47: float
+- aggre_feat_48: float
+- aggre_feat_49: float
+- aggre_feat_50: float
+- aggre_feat_51: float
+- aggre_feat_52: float
+- aggre_feat_53: float
+- aggre_feat_54: float
+- aggre_feat_55: float
+- aggre_feat_56: float
+- aggre_feat_57: float
+- aggre_feat_58: float
+- aggre_feat_59: float
+- aggre_feat_60: float
+- aggre_feat_61: float
+- aggre_feat_62: float
+- aggre_feat_63: float
+- aggre_feat_64: float
+- aggre_feat_65: float
+- aggre_feat_66: float
+- aggre_feat_67: float
+- aggre_feat_68: float
+- aggre_feat_69: float
+- aggre_feat_70: float
+- aggre_feat_71: float
+- aggre_feat_72: float
+- class: int
+numerical_columns:
+- txid
+- timestamp
+- trans_feat_1
+- trans_feat_2
+- trans_feat_3
+- trans_feat_4
+- trans_feat_5
+- trans_feat_6
+- trans_feat_7
+- trans_feat_8
+- trans_feat_9
+- trans_feat_10
+- trans_feat_11
+- trans_feat_12
+- trans_feat_13
+- trans_feat_14
+- trans_feat_15
+- trans_feat_16
+- trans_feat_17
+- trans_feat_18
+- trans_feat_19
+- trans_feat_20
+- trans_feat_21
+- trans_feat_22
+- trans_feat_23
+- trans_feat_24
+- trans_feat_25
+- trans_feat_26
+- trans_feat_27
+- trans_feat_28
+- trans_feat_29
+- trans_feat_30
+- trans_feat_31
+- trans_feat_32
+- trans_feat_33
+- trans_feat_34
+- trans_feat_35
+- trans_feat_36
+- trans_feat_37
+- trans_feat_38
+- trans_feat_39
+- trans_feat_40
+- trans_feat_41
+- trans_feat_42
+- trans_feat_43
+- trans_feat_44
+- trans_feat_45
+- trans_feat_46
+- trans_feat_47
+- trans_feat_48
+- trans_feat_49
+- trans_feat_50
+- trans_feat_51
+- trans_feat_52
+- trans_feat_53
+- trans_feat_54
+- trans_feat_55
+- trans_feat_56
+- trans_feat_57
+- trans_feat_58
+- trans_feat_59
+- trans_feat_60
+- trans_feat_61
+- trans_feat_62
+- trans_feat_63
+- trans_feat_64
+- trans_feat_65
+- trans_feat_66
+- trans_feat_67
+- trans_feat_68
+- trans_feat_69
+- trans_feat_70
+- trans_feat_71
+- trans_feat_72
+- trans_feat_73
+- trans_feat_74
+- trans_feat_75
+- trans_feat_76
+- trans_feat_77
+- trans_feat_78
+- trans_feat_79
+- trans_feat_80
+- trans_feat_81
+- trans_feat_82
+- trans_feat_83
+- trans_feat_84
+- trans_feat_85
+- trans_feat_86
+- trans_feat_87
+- trans_feat_88
+- trans_feat_89
+- trans_feat_90
+- trans_feat_91
+- trans_feat_92
+- trans_feat_93
+- aggre_feat_1
+- aggre_feat_2
+- aggre_feat_3
+- aggre_feat_4
+- aggre_feat_5
+- aggre_feat_6
+- aggre_feat_7
+- aggre_feat_8
+- aggre_feat_9
+- aggre_feat_10
+- aggre_feat_11
+- aggre_feat_12
+- aggre_feat_13
+- aggre_feat_14
+- aggre_feat_15
+- aggre_feat_16
+- aggre_feat_17
+- aggre_feat_18
+- aggre_feat_19
+- aggre_feat_20
+- aggre_feat_21
+- aggre_feat_22
+- aggre_feat_23
+- aggre_feat_24
+- aggre_feat_25
+- aggre_feat_26
+- aggre_feat_27
+- aggre_feat_28
+- aggre_feat_29
+- aggre_feat_30
+- aggre_feat_31
+- aggre_feat_32
+- aggre_feat_33
+- aggre_feat_34
+- aggre_feat_35
+- aggre_feat_36
+- aggre_feat_37
+- aggre_feat_38
+- aggre_feat_39
+- aggre_feat_40
+- aggre_feat_41
+- aggre_feat_42
+- aggre_feat_43
+- aggre_feat_44
+- aggre_feat_45
+- aggre_feat_46
+- aggre_feat_47
+- aggre_feat_48
+- aggre_feat_49
+- aggre_feat_50
+- aggre_feat_51
+- aggre_feat_52
+- aggre_feat_53
+- aggre_feat_54
+- aggre_feat_55
+- aggre_feat_56
+- aggre_feat_57
+- aggre_feat_58
+- aggre_feat_59
+- aggre_feat_60
+- aggre_feat_61
+- aggre_feat_62
+- aggre_feat_63
+- aggre_feat_64
+- aggre_feat_65
+- aggre_feat_66
+- aggre_feat_67
+- aggre_feat_68
+- aggre_feat_69
+- aggre_feat_70
+- aggre_feat_71
+- aggre_feat_72
+- class

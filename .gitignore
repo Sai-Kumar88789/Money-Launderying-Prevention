@@ -1,6 +1,7 @@
 .env
 aml/ logs
 
+practice.py
 
 
-notebook/catboost_info
+/notebook/catboost_info
