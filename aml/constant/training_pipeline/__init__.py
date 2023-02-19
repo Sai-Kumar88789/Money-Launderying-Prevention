@@ -19,6 +19,7 @@ SCHEMA_FILE_PATH = os.path.join("config","schema.yaml")
 """
 Data ingestion related constants start with DATA_INGESTION VAR NAME
 """
+
 DATA_INGESTION_COLLECTION_NAME: str = "aml"
 DATA_INGESTION_DIR_NAME: str = "data_ingestion"
 DATA_INGESTION_FEATURE_STORE_DIR: str = "feature_store"
