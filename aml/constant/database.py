@@ -1,2 +1,2 @@
 
-DATABASE_NAME = "money_laundrying_prevention"
+DATABASE_NAME = "money_launderying_prevention"

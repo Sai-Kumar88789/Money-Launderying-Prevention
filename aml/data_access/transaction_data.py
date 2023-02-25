@@ -5,8 +5,7 @@ import pandas as pd
 import ast
 import numpy as np
 from aml.exception import AMLException
-from cassandra.cluster import Cluster
-from cassandra.auth import PlainTextAuthProvider
+from aml.configuration.mongodb_connection import MongodbClient
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -16,15 +15,10 @@ class TransactionData:
     """
     def __init__(self):
         """
-        Connecting to Cassandra database
+        Connecting to Mongodb database
         """
         try:
-            cloud_config= {
-            'secure_connect_bundle': os.getenv("SECURE_CONNECT_FILE")
-            }
-            auth_provider = PlainTextAuthProvider(os.getenv('CLIENT_ID'), os.getenv('CLIENT_SECRET'))
-            self.cluster = Cluster(cloud=cloud_config, auth_provider=auth_provider)
-            self.session = self.cluster.connect()
+            self.mongo_client = MongodbClient(database_name=DATABASE_NAME)
 
         except Exception as e:
             raise AMLException(e, sys)

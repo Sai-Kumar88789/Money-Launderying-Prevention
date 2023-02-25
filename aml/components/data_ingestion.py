@@ -15,16 +15,17 @@ class DataIngestion:
             raise AMLException(e,sys)
     def export_data_into_feature_store(self) -> pd.DataFrame:
         """
-        Export cassandra collection record as dataframe into feature store
+        Export mongodb collection record as dataframe into feature store
         """
         try:
-            logging.info("Exporting data from cassandra to feature store")
+            logging.info("Exporting data from mongodb database to feature store")
             feature_store_file_path = self.data_ingestion_config.feature_store_file_path
             # creating folder 
             dir_path = os.path.dirname(feature_store_file_path)
             os.makedirs(dir_path,exist_ok= True)
             transactional_data = TransactionData()
-            data_frame = transactional_data.export_collection_as_dataframe(save_file_path= feature_store_file_path,keyspace_name=KEYSPACE_NAME,collection_name=LABLED_DATA_COLLECTION_NAME)
+            data_frame = transactional_data.export_collection_as_dataframe(collection_name= self.data_ingestion_config.collection_name)
+            data_frame.to_csv(feature_store_file_path,index = False, header = True)
             return data_frame
         except Exception as e:
             raise AMLException(e,sys)
@@ -32,7 +33,7 @@ class DataIngestion:
     def initiate_data_ingestion(self) -> DataIngestionArtifact:
         try:
             dataframe = self.export_data_into_feature_store()
-            data_ingestion_artifact = DataIngestionArtifact(feature_store_file_paht=self.data_ingestion_config.feature_store_file_path)
+            data_ingestion_artifact = DataIngestionArtifact(feature_store_file_path=self.data_ingestion_config.feature_store_file_path)
             return data_ingestion_artifact
         except Exception as e:
             raise AMLException(e,sys)
