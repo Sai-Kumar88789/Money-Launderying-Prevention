@@ -2,7 +2,6 @@ from aml.constant.database import DATABASE_NAME
 from typing import Optional
 import sys,json,os,csv
 import pandas as pd
-import ast
 import numpy as np
 from aml.exception import AMLException
 from aml.configuration.mongodb_connection import MongodbClient

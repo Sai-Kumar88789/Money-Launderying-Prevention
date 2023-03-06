@@ -1,7 +1,7 @@
 .env
-aml/ logs
+artifact/
+logs/
 
 practice.py
+Money_launderying_Prevention.egg-info/
 
-
-/notebook/catboost_info
