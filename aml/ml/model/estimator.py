@@ -12,7 +12,7 @@ class TargetValueMapping:
         return {value : key for key, value in self.mapping.items()}
     
 
-class SensorModel:
+class AMLModel:
 
     def __init__(self,preprocessor,model):
         try:

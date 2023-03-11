@@ -39,3 +39,27 @@ Data transformation related constants
 DATA_TRANSFORMATION_DIR_NAME = "data_transformation"
 DATA_TRANSFORMATION_TRANSFORMED_OBJECT_DIR = "transformed_objects"
 DATA_TRANSFORMATION_TRAIN_TEST_SPLIT_RATIO: float = 0.2
+
+"""
+Model Trainer related constants
+"""
+MODEL_TRAINER_DIR_NAME: str = "model_trainer"
+MODEL_TRAINER_TRAINED_MODEL_DIR: str ="trained_models"
+MODEL_TRAINER_EXPECTED_SCORE: float = 0.75
+MODEL_TRAINER_TRAINED_MODEL_NAME: str = "model.pkl"
+MODEL_TRAINER_OVER_FITTING_UNDER_FITTING_THRESHOLD: float = 0.05
+
+"""
+Model Evaluation related constants start with MODEL EVALUATION VAR NAME
+"""
+MODEL_EVALUATION_CHANGED_THRESHOLD_SCORE: float = 0.02
+MODEL_EVALUATION_DIR_NAME: str = "model_evaluation"
+MODEL_EVALUATION_REPORT_NAME: str = "report.yaml"
+
+"""
+Model pusher related constanst start with MODEL PUSHER
+"""
+MODEL_PUSHER_DIR_NAME: str = "model_pusher"
+MODEL_PUSHER_SAVED_MODEL_DIR: str = SAVED_MODEL_DIR
+
+
