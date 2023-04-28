@@ -62,7 +62,7 @@ class ModelEvaluation:
             train_model = load_object(file_path=train_model_file_path)
             
             y_trained_pred = train_model.predict(df)
-            y_latest_pred  =latest_model.predict(df)
+            y_latest_pred  = latest_model.predict(df)
 
             trained_metric = get_classification_score(y_true, y_trained_pred)
             latest_metric = get_classification_score(y_true, y_latest_pred)

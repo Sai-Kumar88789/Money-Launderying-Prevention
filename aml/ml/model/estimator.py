@@ -3,7 +3,7 @@ import os,sys
 
 class TargetValueMapping:
     def __init__(self):
-        self.mapping = {'2': 0, '1': 1}
+        self.mapping = {2.0: 0, 1.0: 1}
 
     def to_dict(self):
         return self.mapping

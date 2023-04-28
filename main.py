@@ -14,12 +14,15 @@ from aml.utils.main_utils import read_yaml_file
 from aml.constant.training_pipeline import SAVED_MODEL_DIR
 from fastapi import FastAPI, File, UploadFile,Request
 from aml.constant.application import APP_HOST, APP_PORT
-from starlette.responses import RedirectResponse
+from starlette.responses import RedirectResponse,FileResponse
 from uvicorn import run as app_run
 from fastapi.responses import Response , StreamingResponse,HTMLResponse
 from aml.ml.model.estimator import ModelResolver,TargetValueMapping
 from aml.utils.main_utils import load_object
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.templating import Jinja2Templates
+from fastapi.staticfiles import StaticFiles
+from pathlib import Path
 import os
 import pandas as pd
 import io
@@ -36,7 +39,12 @@ def set_env_variable(env_file_path):
 
 app = FastAPI()
 origins = ["*"]
-
+app.mount(
+    "/templates",
+    StaticFiles(directory=Path(__file__).parent.parent.absolute() / "templates"),
+    name="templates",
+)
+templates = Jinja2Templates(directory="templates")
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
@@ -46,10 +54,10 @@ app.add_middleware(
 )
 
 
-@app.get("/", tags=["authentication"])
-async def index():
-    return RedirectResponse(url="/docs")
-
+@app.get("/",response_class=HTMLResponse)
+async def index(request: Request):
+    context = {"request": request, "title": "Home", "body": "Welcome to my website!"}
+    return templates.TemplateResponse("index.html", context=context)
 @app.get("/train")
 async def train_route():
     try:
@@ -68,6 +76,11 @@ async def predict_route(request:Request,file: UploadFile = File(...)):
         #get data from user csv file
         #conver csv file to dataframe
         #df = pd.read_csv(file.file)
+        content_file = await file.read()
+
+        print(file.filename)
+        print(content_file)
+    
         df = pd.read_csv(io.StringIO(file.file.read().decode("utf-8")))
 
         model_resolver = ModelResolver(model_dir=SAVED_MODEL_DIR)
@@ -81,9 +94,9 @@ async def predict_route(request:Request,file: UploadFile = File(...)):
         df['predicted_column'].replace(TargetValueMapping().reverse_mapping(),inplace=True)
         #return df.to_html()
         #decide how to return file to user.
-        html = df.to_html()
-        return HTMLResponse(content=html)
-
+        results_csv = df.to_csv(index=False)
+        return Response(content=results_csv, media_type="text/csv", headers={"Content-Disposition": "attachment; filename=results.csv"})
+    
         
     except Exception as e:
         return {"error": str(e)}

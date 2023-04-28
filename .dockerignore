@@ -1,0 +1,6 @@
+data/
+artifact/
+notebook/
+practice.py
+.ipynb_checkpoints/
+

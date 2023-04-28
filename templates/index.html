@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Money Laundering Prevention Project</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('templates', path='styles.css') }}">
+
+</head>
+
+<body>
+    <h1>Money Laundering Prevention</h1>
+
+    <form action="/predict" method="post" enctype="multipart/form-data">
+        <label for="file-upload">Upload a CSV file:</label>
+        <input type="file" id="file-upload" name="file-upload"><br><br>
+        <button type="submit">Predict</button>
+    </form>
+    <br><br> {% if results_csv %}
+    <a href="{{ results_csv }}" download>Download results as CSV</a> {% endif %}
+    <form method="GET" action="/train" id='train'>
+        <button type="submit" id="train-btn">Train</button>
+    </form>
+    <div id="output"></div>
+
+
+</body>
+
+</html>
