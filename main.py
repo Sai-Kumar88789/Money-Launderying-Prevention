@@ -1,8 +1,3 @@
-# from aml.pipelines.training_pipeline import TrainPipeline
-
-# train = TrainPipeline()
-# train.run_pipeline()
-
 from aml.configuration.mongodb_connection import MongodbClient
 from aml.exception import AMLException
 import os,sys
