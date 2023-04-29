@@ -31,7 +31,7 @@ Collect the data from the below link
 https://www.kaggle.com/datasets/ellipticco/elliptic-data-set
 ```
 ## User Interface
-![image]([https://user-images.githubusercontent.com/95096218/235320106-82ec33d1-a431-44f6-9a02-3d1dc59db508.png](https://user-images.githubusercontent.com/95096218/235320203-6fa7525c-0c44-49f3-9f6c-1989be49dc17.png))
+![image](https://user-images.githubusercontent.com/95096218/235320256-d69f9ad6-bef4-430f-9f36-af4715471ebd.png)
 ## Project Archietecture
 ![image](https://user-images.githubusercontent.com/57321948/193536768-ae704adc-32d9-4c6c-b234-79c152f756c5.png)
 
