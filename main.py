@@ -98,9 +98,6 @@ async def predict_route(request:Request,file: UploadFile = File(...)):
     except Exception as e:
         return {"error": str(e)}
 
-
-
-
 if __name__=="__main__":
     #main()
     #set_env_variable(env_file_path)
