@@ -6,6 +6,9 @@ from aml.components.data_transformation import DataTransformation
 from aml.components.model_trainer import ModelTrainer
 from aml.components.model_evaluation import ModelEvaluation
 from aml.components.model_pusher import ModelPusher
+from aml.cloud_storage.s3_syncer import S3Sync
+from aml.constant.s3_bucket import TRAINING_BUCKET_NAME,PREDICTION_BUCKET_NAME
+from aml.constant.training_pipeline import SAVED_MODEL_DIR
 from aml.logger import logging
 from aml.exception import AMLException
 import sys
@@ -15,7 +18,7 @@ class TrainPipeline:
 
     def __init__(self):
         self.training_pipeline_config = TrainingPipelineConfig()
-    
+        self.s3_sync = S3Sync()
     def start_data_ingestion(self)->DataIngestionArtifact:
         try:
             self.data_ingestion_config = DataIngestionConfig(training_pipeline_config= self.training_pipeline_config)
@@ -80,7 +83,19 @@ class TrainPipeline:
             return model_pusher_artifact
         except Exception as e:
             raise AMLException(e,sys)
-        
+    def sync_artifact_dir_to_s3(self):
+        try:
+            aws_bucket_url = f"s3://{TRAINING_BUCKET_NAME}/artifact/{self.training_pipeline_config.timestamp}"
+            self.s3_sync.sync_folder_to_s3(folder = self.training_pipeline_config.artifact_dir,aws_bucket_url=aws_bucket_url)
+        except Exception as e:
+            raise AMLException(e,sys)
+            
+    def sync_saved_model_dir_to_s3(self):
+        try:
+            aws_bucket_url = f"s3://{TRAINING_BUCKET_NAME}/{SAVED_MODEL_DIR}"
+            self.s3_sync.sync_folder_to_s3(folder = SAVED_MODEL_DIR,aws_buket_url=aws_bucket_url)
+        except Exception as e:
+            raise AMLException(e,sys)
 
     def run_pipeline(self):
         try:
@@ -106,8 +121,13 @@ class TrainPipeline:
             model_pusher_artifact: ModelPusherArtifact = self.start_model_pusher(model_evaluation_artifact= model_evaluation_artifact)
             TrainPipeline.is_pipeline_running=False
             logging.info("Model pusher completed ")
-
+            # logging.info("Copy the files to S3 bucket")
+            # self.sync_artifact_dir_to_s3()
+            # logging.info("Save the model into S3 bucket")
+            # self.sync_saved_model_dir_to_s3()
+        
         except Exception as e:
+            self.sync_artifact_dir_to_s3()
             raise AMLException(e,sys)
         
 

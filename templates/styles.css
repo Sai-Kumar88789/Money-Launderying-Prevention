@@ -1,9 +1,45 @@
-body {
-    font-family: Arial, sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
     background: rgb(131, 58, 180);
-    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(253, 29, 29, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(197, 29, 253, 1) 50%, rgba(252, 176, 69, 1) 100%);
+}
+
+.container {
+    max-width: 700px;
+    width: 100%;
+    background-color: #fff;
+    padding: 25px 30px;
+    border-radius: 5px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+}
+
+.container .title {
+    font-size: 25px;
+    font-weight: 500;
+    position: relative;
+}
+
+.container .title::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 350px;
+    border-radius: 5px;
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(197, 29, 253, 1) 50%, rgba(252, 176, 69, 1) 100%);
 }
 
 h1 {
@@ -13,8 +49,12 @@ h1 {
 }
 
 form {
-    max-width: 500px;
+    max-width: 700px;
     margin: 0 auto;
+}
+
+p {
+    margin-top: 10px;
 }
 
 label {
@@ -23,26 +63,59 @@ label {
 }
 
 input[type=file] {
-    display: block;
+    display: none;
     margin-bottom: 10px;
 }
 
-button {
+.user-details {
+    margin-top: 30px;
+}
+
+.fileName {
+    margin-top: 10px;
+    color: rgb(255, 255, 255);
     display: inline-block;
-    padding: 10px 20px;
-    border: none;
+    padding: 10px;
     border-radius: 5px;
-    background-color: #007bff;
-    color: #fff;
-    font-size: 16px;
     cursor: pointer;
-    margin-right: 10px;
+    background-color: #000000;
+    border: none;
+    width: 500px;
+}
+
+.custom-file-upload {
+    color: rgb(255, 255, 255);
+    display: inline-block;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(197, 29, 253, 1) 50%, rgba(252, 176, 69, 1) 100%);
+    border: none;
+}
+
+.custom-file-upload:hover {
+    background: #0069d9;
+}
+
+button {
+    height: 100%;
+    width: 100%;
+    border-radius: 5px;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: rgb(131, 58, 180);
+    background: linear-gradient(90deg, rgba(131, 58, 180, 1) 0%, rgba(197, 29, 253, 1) 50%, rgba(252, 176, 69, 1) 100%);
 }
 
 button:hover {
-    background-color: #0069d9;
+    background: #0069d9;
 }
 
-#output {
-    margin-top: 20px;
+.rights {
+    text-align: bottom;
 }

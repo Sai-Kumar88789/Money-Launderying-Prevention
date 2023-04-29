@@ -53,20 +53,25 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
+training_status = "Not started"
+pred_response="Prediction not started"
 @app.get("/",response_class=HTMLResponse)
 async def index(request: Request):
     context = {"request": request, "title": "Home", "body": "Welcome to my website!"}
-    return templates.TemplateResponse("index.html", context=context)
+    return templates.TemplateResponse("index.html", {"request": request, "status": training_status,"pred_status":pred_response})
 @app.get("/train")
-async def train_route():
+async def train_route(request: Request):
     try:
-
+        global training_status
+        
         train_pipeline = TrainPipeline()
+        training_status = "Started Once"
         if train_pipeline.is_pipeline_running:
-            return Response("Training pipeline is already running.")
+            training_status ="Training pipeline is already running." 
+            return templates.TemplateResponse("index.html",{"request": request,"status": training_status})
         train_pipeline.run_pipeline()
-        return Response("Training successful !!")
+        training_status = "Training successful !!" 
+        return templates.TemplateResponse("index.html",{"request": request,"status": training_status})
     except Exception as e:
         return Response(f"Error Occurred! {e}")
 
@@ -76,16 +81,14 @@ async def predict_route(request:Request,file: UploadFile = File(...)):
         #get data from user csv file
         #conver csv file to dataframe
         #df = pd.read_csv(file.file)
-        content_file = await file.read()
-
-        print(file.filename)
-        print(content_file)
-    
+        global pred_response
+        pred_response = "Started"
         df = pd.read_csv(io.StringIO(file.file.read().decode("utf-8")))
 
         model_resolver = ModelResolver(model_dir=SAVED_MODEL_DIR)
         if not model_resolver.is_model_exist():
-            return Response("Model is not available")
+            pred_response = 'Model is not available'
+            return templates.TemplateResponse("index.html",{"request": request,"pred_status": pred_response})
         
         best_model_path = model_resolver.get_best_model_path()
         model = load_object(file_path=best_model_path)
@@ -94,8 +97,9 @@ async def predict_route(request:Request,file: UploadFile = File(...)):
         df['predicted_column'].replace(TargetValueMapping().reverse_mapping(),inplace=True)
         #return df.to_html()
         #decide how to return file to user.
-        results_csv = df.to_csv(index=False)
-        return Response(content=results_csv, media_type="text/csv", headers={"Content-Disposition": "attachment; filename=results.csv"})
+        result_csv = df.to_csv(index=False)
+        pred_response = "Prediction completed ! Check the results !!"
+        return Response(content=result_csv, media_type='text/csv', headers={'Content-Disposition': 'attachment; filename="result.csv"'})
     
         
     except Exception as e:
