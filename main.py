@@ -22,7 +22,6 @@ import os
 import pandas as pd
 import io
 
-
 env_file_path=os.path.join(os.getcwd(),"env.yaml")
 
 def set_env_variable(env_file_path):
@@ -30,7 +29,6 @@ def set_env_variable(env_file_path):
     if os.getenv('MONGODB_URL',None) is None:
         env_config = read_yaml_file(env_file_path)
         os.environ['MONGODB_URL']=env_config['MONGODB_URL']
-
 
 app = FastAPI()
 origins = ["*"]
