@@ -121,10 +121,10 @@ class TrainPipeline:
             model_pusher_artifact: ModelPusherArtifact = self.start_model_pusher(model_evaluation_artifact= model_evaluation_artifact)
             TrainPipeline.is_pipeline_running=False
             logging.info("Model pusher completed ")
-            # logging.info("Copy the files to S3 bucket")
-            # self.sync_artifact_dir_to_s3()
-            # logging.info("Save the model into S3 bucket")
-            # self.sync_saved_model_dir_to_s3()
+            logging.info("Copy the files to S3 bucket")
+            self.sync_artifact_dir_to_s3()
+            logging.info("Save the model into S3 bucket")
+            self.sync_saved_model_dir_to_s3()
         
         except Exception as e:
             self.sync_artifact_dir_to_s3()
