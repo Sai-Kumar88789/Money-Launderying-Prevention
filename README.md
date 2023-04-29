@@ -30,6 +30,8 @@ Collect the data from the below link
 ```bash 
 https://www.kaggle.com/datasets/ellipticco/elliptic-data-set
 ```
+## User Interface
+![image](https://drive.google.com/file/d/1znTNd_ZK2taiXhR3Ybq5HUuXlEXU9rwv/view?usp=sharing )
 ## Project Archietecture
 ![image](https://user-images.githubusercontent.com/57321948/193536768-ae704adc-32d9-4c6c-b234-79c152f756c5.png)
 
