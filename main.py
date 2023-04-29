@@ -98,14 +98,7 @@ async def predict_route(request:Request,file: UploadFile = File(...)):
     except Exception as e:
         return {"error": str(e)}
 
-# def main():
-#     try:
-#         set_env_variable(env_file_path)
-#         training_pipeline = TrainPipeline()
-#         training_pipeline.run_pipeline()
-#     except Exception as e:
-#         print(e)
-#         logging.exception(e)
+
 
 
 if __name__=="__main__":
